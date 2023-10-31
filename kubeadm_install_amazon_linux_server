@@ -18,6 +18,12 @@ Run the following commands on both the master and worker nodes to prepare them f
 ```bash
 # using 'sudo su' is not a good practice.
 
+install docker
+sudo yum install docker -y
+sudo service docker start
+sudo systemctl enable docker.service
+sudo usermod -aG docker $USER && newgrp docker
+
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
@@ -67,12 +73,7 @@ sudo systemctl enable --now kubelet
     sudo kubeadm token create --print-join-command
     ```
 
-    <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/0370839b-bbac-415c-9d5a-9ab52cd3108b)</kbd>
-
 6. Expose port 6443 in the Security group for the Worker to connect to Master Node
-
-<kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/b3f5df01-acb0-419f-aa70-6d51819f4ec0)</kbd>
-
 
 ---
 
@@ -83,7 +84,6 @@ sudo systemctl enable --now kubelet
     ```bash
     sudo kubeadm reset pre-flight checks
     ```
-    <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/3d29912b-f1a3-4e0b-a6ee-6c9cc5db49fb)</kbd>
 
 2. Paste the join command you got from the master node and append `--v=5` at the end.
 *Make sure either you are working as sudo user or use `sudo` before the command*

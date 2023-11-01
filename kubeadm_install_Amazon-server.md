@@ -63,7 +63,7 @@ sudo systemctl enable --now kubelet
    <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/760276f4-9146-4bc1-aa92-48cc1c0b13f4)</kbd>
 
 
-3. Set up local kubeconfig (both for root user and normal user):
+2. Set up local kubeconfig (both for root user and normal user):
 
     ```bash
     mkdir -p $HOME/.kube
@@ -74,18 +74,19 @@ sudo systemctl enable --now kubelet
     <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/f647adc1-0976-490e-b9c9-f6f96908d6fe)</kbd>
 
 
-4. Apply Weave network:
+3. Apply Weave network:
 
     ```bash
     curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.3/manifests/calico.yaml -O
     kubectl apply -f calico.yaml
-    kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+    OR
+    kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.3/manifests/calico.yaml
     ```
 
     <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/ec7b4684-7719-4d09-81d8-eee27b98972a)</kbd>
 
 
-5. Generate a token for worker nodes to join:
+4. Generate a token for worker nodes to join:
 
     ```bash
     sudo kubeadm token create --print-join-command
@@ -93,7 +94,7 @@ sudo systemctl enable --now kubelet
 
     <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/0370839b-bbac-415c-9d5a-9ab52cd3108b)</kbd>
 
-6. Expose port 6443 in the Security group for the Worker to connect to Master Node
+5. Expose port 6443 in the Security group for the Worker to connect to Master Node
 
 <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/b3f5df01-acb0-419f-aa70-6d51819f4ec0)</kbd>
 

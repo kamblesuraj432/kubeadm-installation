@@ -4,7 +4,7 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 
 ## Pre-requisites
 
-* Amazon OS (Xenial or later)
+* Amazon OS
 * sudo privileges
 * Internet access
 * t2.medium instance type or higher

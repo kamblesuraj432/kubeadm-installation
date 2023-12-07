@@ -39,14 +39,8 @@ sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 ```
 ```bash
+
 # using 'sudo su' is not a good practice.
-sudo yum install docker -y
-sudo service docker start
-sudo systemctl enable docker.service
-sudo usermod -aG docker $USER && newgrp docker
-
-sudo systemctl enable --now docker # enable and start in single command.
-
 # Adding GPG keys.
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]

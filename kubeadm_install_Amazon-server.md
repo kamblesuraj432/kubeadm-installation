@@ -95,6 +95,7 @@ sudo systemctl enable --now kubelet
 
     ```bash
     kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml
+    
     ```
 
     <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/ec7b4684-7719-4d09-81d8-eee27b98972a)</kbd>

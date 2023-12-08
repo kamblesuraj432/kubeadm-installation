@@ -94,10 +94,7 @@ sudo systemctl enable --now kubelet
 3. Apply Weave network:
 
     ```bash
-    curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.3/manifests/calico.yaml -O
-    kubectl apply -f calico.yaml
-    OR
-    kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.3/manifests/calico.yaml
+    kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml
     ```
 
     <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/ec7b4684-7719-4d09-81d8-eee27b98972a)</kbd>
